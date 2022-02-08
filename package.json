@@ -7,6 +7,10 @@
   "keywords": [
     "gatsby"
   ],
+  "engines": {
+    "node": ">=16.13.2"
+  },
+  "engineStrict": true,
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
