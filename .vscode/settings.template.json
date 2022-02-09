@@ -1,0 +1,12 @@
+{
+  // General
+  "editor.tabSize": 2,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "[javascript][javascriptreact][typescript][typescriptreact][jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [100]
+  }
+}
