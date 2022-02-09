@@ -1,7 +1,7 @@
-module.exports = {
-  siteMetadata: {
-      title: `Learn Gatsby`,
-    siteUrl: `https://www.yourdomain.tld`
-  },
-  plugins: ["gatsby-plugin-emotion"]
-};
+const { register } = require("esbuild-register/dist/node");
+
+register({
+  target: "node16",
+});
+
+module.exports = require("./gatsby-config.ts");
