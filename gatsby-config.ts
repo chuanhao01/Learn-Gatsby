@@ -1,5 +1,5 @@
-import type { GatsbyConfig } from "gatsby";
 import * as path from "path";
+import type { GatsbyConfig } from "gatsby";
 
 const gatsbyRequiredRules = path.join(
   process.cwd(),
