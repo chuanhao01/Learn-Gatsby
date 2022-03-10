@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { jsx } from "@emotion/react";
+import { css, jsx } from "@emotion/react";
 import { Link } from "gatsby";
 
 interface ISimpleLayoutProps {
@@ -12,20 +12,47 @@ export const SimpleLayout = ({
   pageTitle,
   children,
 }: ISimpleLayoutProps): JSX.Element => {
+  const SSimpleLayoutContainer = css({
+    margin: "auto",
+    maxWidth: "500px",
+    fontFamily: "sans-serif",
+  });
+  const SHeading = css({
+    color: "rebeccapurple",
+  });
+  const SNavLinksList = css({
+    display: "flex",
+    listStyle: "none",
+    paddingLeft: 0,
+  });
+  const SNavLinkItem = css({
+    paddingRight: "2rem",
+  });
+  const SNavLinkItemText = css({
+    color: "black",
+  });
+
   return (
-    <div>
+    <div css={SSimpleLayoutContainer}>
       <title>{pageTitle}</title>
       <nav>
-        <ul>
-          <li>
-            <Link to="/">Index</Link>
+        <ul css={SNavLinksList}>
+          <li css={SNavLinkItem}>
+            <Link css={SNavLinkItemText} to="/">
+              Index
+            </Link>
           </li>
-          <li>
-            <Link to="/About">About</Link>
+          <li css={SNavLinkItem}>
+            <Link css={SNavLinkItemText} to="/About">
+              About
+            </Link>
           </li>
         </ul>
       </nav>
-      <main>{children}</main>
+      <main>
+        <h1 css={SHeading}>{pageTitle}</h1>
+        {children}
+      </main>
     </div>
   );
 };
