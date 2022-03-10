@@ -5,6 +5,18 @@ interface INavbarProps {
   pageTitle: string;
 }
 
-const Navbar = ({ pageTitle }: INavbarProps): JSX.Element => {
-  return <></>;
+export const Navbar = ({ pageTitle }: INavbarProps): JSX.Element => {
+  return (
+    <div>
+      <p>{pageTitle}</p>
+      <ul>
+        <li>
+          <Link to="/">Index</Link>
+        </li>
+        <li>
+          <Link to="/About">About</Link>
+        </li>
+      </ul>
+    </div>
+  );
 };
