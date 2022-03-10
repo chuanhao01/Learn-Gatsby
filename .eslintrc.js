@@ -32,6 +32,27 @@ module.exports = {
     "lib",
   ],
   rules: {
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        selector: "variable",
+        format: ["camelCase", "PascalCase", "UPPER_CASE"],
+      },
+      {
+        selector: "function",
+        format: ["camelCase"],
+      },
+      {
+        selector: "interface",
+        format: ["PascalCase"],
+        prefix: ["I"],
+      },
+      {
+        selector: "typeParameter",
+        format: ["PascalCase"],
+        prefix: ["T"],
+      },
+    ],
     "import/no-unresolved": "error",
     "import/order": [
       "error",
