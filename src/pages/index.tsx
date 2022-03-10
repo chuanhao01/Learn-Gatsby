@@ -1,12 +1,11 @@
 import * as React from "react";
-import { Navbar } from "../components/Navbar";
+import { SimpleLayout } from "../components/layouts/SimpleLayout";
 
 const IndexPage = (): JSX.Element => {
   return (
-    <main>
-      <Navbar pageTitle="Index Page"></Navbar>
+    <SimpleLayout pageTitle="Index Page">
       <h1>Welcome to my site</h1>
-    </main>
+    </SimpleLayout>
   );
 };
 
