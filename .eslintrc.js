@@ -2,11 +2,6 @@ module.exports = {
   globals: {
     __PATH_PREFIX__: true,
   },
-  settings: {
-    react: {
-      version: "detect",
-    },
-  },
   env: {
     browser: true,
     es2021: true,
@@ -15,8 +10,9 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/jsx-runtime",
     "prettier",
   ],
   parser: "@typescript-eslint/parser",
@@ -26,16 +22,46 @@ module.exports = {
     },
     ecmaVersion: 12,
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ["react", "import", "@typescript-eslint"],
   ignorePatterns: [
     "node_modules",
     "bower_components",
     ".cache",
     "public",
     "gatsby-config.js",
+    "lib",
   ],
   rules: {
+    "import/no-unresolved": "error",
+    "import/order": [
+      "error",
+      {
+        groups: [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type",
+        ],
+      },
+    ],
     // "no-anonymous-exports-page-templates": "warn",
     // "limited-exports-page-templates": "warn",
+  },
+  settings: {
+    react: {
+      version: "detect",
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"],
+    },
+    "import/resolver": {
+      typescript: {
+        alwaysTryTypes: true,
+      },
+    },
   },
 };
