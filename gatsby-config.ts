@@ -14,7 +14,7 @@ const plugins: GatsbyConfig["plugins"] = [
   "gatsby-plugin-image",
   "gatsby-plugin-sharp",
   "gatsby-plugin-emotion",
-  "gatsby-theme-material-ui",
+  "gatsby-plugin-react-helmet",
   {
     resolve: "gatsby-plugin-eslint",
     options: {
@@ -27,6 +27,7 @@ const plugins: GatsbyConfig["plugins"] = [
       // Any additional eslint-webpack-plugin options below
     },
   },
+  "gatsby-theme-material-ui",
 ];
 
 const siteMetadata: GatsbyConfig["siteMetadata"] = {
