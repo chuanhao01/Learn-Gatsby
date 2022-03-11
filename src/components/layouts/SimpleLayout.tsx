@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 import { css, jsx } from "@emotion/react";
-import { Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import { Helmet } from "react-helmet";
 
 interface ISimpleLayoutProps {
@@ -33,9 +33,26 @@ export const SimpleLayout = ({
     color: "black",
   });
 
+  interface IData {
+    site: {
+      siteMetadata: {
+        title: string;
+      };
+    };
+  }
+  const data: IData = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `);
+
   return (
     <div css={SSimpleLayoutContainer}>
-      <Helmet title={pageTitle} />
+      <Helmet title={data.site.siteMetadata.title} />
       <nav>
         <ul css={SNavLinksList}>
           <li css={SNavLinkItem}>
