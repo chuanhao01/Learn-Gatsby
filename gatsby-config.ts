@@ -11,6 +11,8 @@ const gatsbyRequiredRules = path.join(
 );
 
 const plugins: GatsbyConfig["plugins"] = [
+  "gatsby-plugin-image",
+  "gatsby-plugin-sharp",
   "gatsby-plugin-emotion",
   "gatsby-theme-material-ui",
   {
