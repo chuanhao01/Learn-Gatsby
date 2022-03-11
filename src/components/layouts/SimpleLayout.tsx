@@ -2,6 +2,7 @@
 
 import { css, jsx } from "@emotion/react";
 import { Link } from "gatsby";
+import { Helmet } from "react-helmet";
 
 interface ISimpleLayoutProps {
   pageTitle: string;
@@ -34,7 +35,7 @@ export const SimpleLayout = ({
 
   return (
     <div css={SSimpleLayoutContainer}>
-      <title>{pageTitle}</title>
+      <Helmet title={pageTitle} />
       <nav>
         <ul css={SNavLinksList}>
           <li css={SNavLinkItem}>
