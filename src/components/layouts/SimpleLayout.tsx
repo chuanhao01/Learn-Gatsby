@@ -18,6 +18,12 @@ export const SimpleLayout = ({
     maxWidth: "500px",
     fontFamily: "sans-serif",
   });
+  const SHeader = css({
+    fontSize: "3rem",
+    color: "gray",
+    fontWeight: 700,
+    margin: "3rem 0",
+  });
   const SHeading = css({
     color: "rebeccapurple",
   });
@@ -52,7 +58,8 @@ export const SimpleLayout = ({
 
   return (
     <div css={SSimpleLayoutContainer}>
-      <Helmet title={data.site.siteMetadata.title} />
+      <Helmet title={pageTitle} />
+      <header css={SHeader}>{data.site.siteMetadata.title}</header>
       <nav>
         <ul css={SNavLinksList}>
           <li css={SNavLinkItem}>
