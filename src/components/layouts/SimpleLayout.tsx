@@ -72,6 +72,11 @@ export const SimpleLayout = ({
               About
             </Link>
           </li>
+          <li css={SNavLinkItem}>
+            <Link css={SNavLinkItemText} to="/Blog">
+              Blog
+            </Link>
+          </li>
         </ul>
       </nav>
       <main>
