@@ -27,6 +27,13 @@ const plugins: GatsbyConfig["plugins"] = [
       // Any additional eslint-webpack-plugin options below
     },
   },
+  {
+    resolve: "gatsby-source-filesystem",
+    options: {
+      name: `blog`,
+      path: `${process.cwd()}/data/blog/`,
+    },
+  },
   "gatsby-theme-material-ui",
 ];
 
