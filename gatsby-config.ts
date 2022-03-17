@@ -15,6 +15,7 @@ const plugins: GatsbyConfig["plugins"] = [
   "gatsby-plugin-sharp",
   "gatsby-plugin-emotion",
   "gatsby-plugin-react-helmet",
+  "gatsby-plugin-tsconfig-paths",
   {
     resolve: "gatsby-plugin-eslint",
     options: {
@@ -34,11 +35,18 @@ const plugins: GatsbyConfig["plugins"] = [
       path: `${process.cwd()}/data/blog/`,
     },
   },
+  {
+    resolve: "gatsby-source-filesystem",
+    options: {
+      name: `images`,
+      path: `${process.cwd()}/data/images/`,
+    },
+  },
   "gatsby-theme-material-ui",
 ];
 
 const siteMetadata: GatsbyConfig["siteMetadata"] = {
-  title: "Learn Gatsby",
+  title: "Learn Gatsby Site",
   siteUrl: "https://somedomain.tld/",
 };
 
