@@ -16,6 +16,7 @@ const plugins: GatsbyConfig["plugins"] = [
   "gatsby-plugin-emotion",
   "gatsby-plugin-react-helmet",
   "gatsby-plugin-tsconfig-paths",
+  "gatsby-plugin-mdx",
   {
     resolve: "gatsby-plugin-eslint",
     options: {
@@ -32,14 +33,7 @@ const plugins: GatsbyConfig["plugins"] = [
     resolve: "gatsby-source-filesystem",
     options: {
       name: `blog`,
-      path: `${process.cwd()}/data/blog/`,
-    },
-  },
-  {
-    resolve: "gatsby-source-filesystem",
-    options: {
-      name: `images`,
-      path: `${process.cwd()}/data/images/`,
+      path: `${process.cwd()}/src/data/blog/`,
     },
   },
   "gatsby-theme-material-ui",
