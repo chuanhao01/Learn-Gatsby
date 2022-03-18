@@ -1,24 +1,31 @@
 import { graphql, useStaticQuery } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import * as React from "react";
 import { SimpleLayout } from "../components/layouts/SimpleLayout";
 
 const Blog = (): JSX.Element => {
   interface IBlogData {
-    allFile: {
+    allMdx: {
       nodes: {
-        name: string;
-        absolutePath: string;
-        sourceInstanceName: string;
+        frontmatter: {
+          title: string;
+          date: string;
+        };
+        id: string;
+        body: string;
       }[];
     };
   }
   const blogData: IBlogData = useStaticQuery(graphql`
     {
-      allFile(filter: { sourceInstanceName: { eq: "blog" }, name: {} }) {
+      allMdx(sort: { fields: frontmatter___date, order: DESC }) {
         nodes {
-          name
-          absolutePath
-          sourceInstanceName
+          id
+          frontmatter {
+            title
+            date(formatString: "MMMM D, YYYY")
+          }
+          body
         }
       }
     }
@@ -27,11 +34,13 @@ const Blog = (): JSX.Element => {
     <SimpleLayout pageTitle="Blog Page">
       <>
         <p>Look at the blog page</p>
-        <ul>
-          {blogData.allFile.nodes.map((node) => (
-            <li key={node.name}>{node.name}</li>
-          ))}
-        </ul>
+        {blogData.allMdx.nodes.map((node) => (
+          <article key={node.id}>
+            <h2>{node.frontmatter.title}</h2>
+            <p>{node.frontmatter.date}</p>
+            <MDXRenderer>{node.body}</MDXRenderer>
+          </article>
+        ))}
       </>
     </SimpleLayout>
   );
