@@ -26,7 +26,7 @@ const About = (): JSX.Element => {
     <SimpleLayout pageTitle="About Page">
       <>
         <h1>This is the about pagge</h1>
-        <StaticImage src="../../data/images/icon.png" alt="some guy" />
+        <StaticImage src="../data/images/icon.png" alt="some guy" />
       </>
     </SimpleLayout>
   );
