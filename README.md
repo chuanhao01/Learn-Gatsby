@@ -3,6 +3,8 @@
 Starting new line of repos (hopefully) where each one is for me to play, test and learn new tech.
 Seems fun
 
+Remember to use `nvm use` before running commands
+
 ## Goals
 
 1. [ ] Figure out what kind of test app I want to build
