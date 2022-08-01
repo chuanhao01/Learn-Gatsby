@@ -3,37 +3,34 @@
   "editor.tabSize": 2,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "eslint.validate": ["typescript", "typescriptreact"],
   "[javascript][javascriptreact][typescript][typescriptreact][jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.rulers": [100],
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": false
-  },
-  "[typescript]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
-    }
-  },
-  "[typescriptreact]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    }
-  },
-  "[javascript]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    }
-  },
-  "[javascriptreact]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    }
+    },
+    "editor.rulers": [100]
   },
   "typescript.tsdk": "node_modules/typescript/lib",
+  // --- Other Language settings ---
+  // --- JSONC
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // --- Markdown
   "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
-      "source.fixAll": true
-    }
+      "source.fixAll.markdownlint": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // --- Extensions Related Settings ---
+  // Markdownlint
+  "markdownlint.config": {
+    "MD007": { "indent": 2 },
+    "MD024": false,
+    "MD025": false
   }
 }
