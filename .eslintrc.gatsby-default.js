@@ -14,6 +14,7 @@
  * - Change import to requires 2022-07-25
  * - Removed not eslint options
  * - Removed not used eslint options
+ * - Disabled graphql plugin, since not installed and not used 2022-08-01
  */
 
 const eslintConfig = () => {
@@ -51,13 +52,14 @@ const eslintConfig = () => {
         "react/jsx-uses-react": usingAutomaticJsxRuntime ? `off` : `error`,
         "react/react-in-jsx-scope": usingAutomaticJsxRuntime ? `off` : `error`,
         "import/no-webpack-loader-syntax": [0],
-        "graphql/template-strings": [
-          `error`,
-          {
-            env: `relay`,
-            tagName: `graphql`,
-          },
-        ],
+        // TODO: Disabled for now, look at using the more mordern plugin, https://github.com/B2o5T/graphql-eslint
+        // "graphql/template-strings": [
+        //   `error`,
+        //   {
+        //     env: `relay`,
+        //     tagName: `graphql`,
+        //   },
+        // ],
         "react/jsx-pascal-case": [
           `warn`,
           {
