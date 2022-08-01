@@ -40,7 +40,7 @@ module.exports = {
     // Specifically for typescript in main gatsby src code
     {
       files: ["*.ts", "*.tsx"],
-      plugins: ["react", "@typescript-eslint"],
+      plugins: ["jsx-a11y", "react", "@typescript-eslint"],
       extends: [
         "eslint:recommended",
         "plugin:react/recommended",
