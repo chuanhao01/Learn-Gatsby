@@ -4,5 +4,8 @@
 	"useTabs": false,
 	"semi": true,
 	"singleQuote": false,
-	"bracketSpacing": true
+	"bracketSpacing": true,
+	"importOrder": ["^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }
