@@ -1,14 +1,12 @@
-import { Link } from "gatsby";
 import * as React from "react";
+
+import { VerticalPageLayout } from "components/layouts/VerticalPageLayout";
 
 const IndexPage = () => {
   return (
-    <main>
-      <title>Index Page</title>
-      <h1>Welcome to the Index Page</h1>
-      <Link to="/about">About</Link>
+    <VerticalPageLayout pageTitle="Home Page">
       <p>Do the gatsby tutorial</p>
-    </main>
+    </VerticalPageLayout>
   );
 };
 
