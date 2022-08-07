@@ -40,7 +40,7 @@ module.exports = {
     // Specifically for typescript in main gatsby src code
     {
       files: ["*.ts", "*.tsx"],
-      plugins: ["jsx-a11y", "react", "@typescript-eslint"],
+      plugins: ["jsx-a11y", "import", "react", "@typescript-eslint"],
       extends: [
         "eslint:recommended",
         "plugin:react/recommended",
@@ -49,6 +49,7 @@ module.exports = {
       ],
       rules: {
         ...defaultEslintConfig.rules,
+        "import/no-unresolved": "error",
         "@typescript-eslint/naming-convention": [
           "error",
           {
@@ -74,6 +75,14 @@ module.exports = {
           "error",
           { "ts-ignore": "allow-with-description" },
         ],
+      },
+      settings: {
+        "import/parsers": {
+          "@typescript-eslint/parser": [".ts", ".tsx"],
+        },
+        "import/resolver": {
+          typescript: { alwaysTryTypes: true },
+        },
       },
     },
   ],
