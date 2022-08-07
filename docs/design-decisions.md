@@ -54,3 +54,16 @@ So generally as long as it works, it is alright
 
 Trying out the eslint method is worth a try
 Only thing I could think off that would push in other favor is import order mattered
+
+## Page naming
+
+Just follow naming convention of gatsby and use lowercase.
+Also since we want the page rendering to be in lowercase as well.
+
+### Winning Thought
+
+Since it is already gatsby naming convention
+
+### Other thoughts
+
+Not worth and since we can be consistent, so we are using this.
