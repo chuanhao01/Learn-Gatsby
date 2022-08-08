@@ -67,3 +67,12 @@ Since it is already gatsby naming convention
 ### Other thoughts
 
 Not worth and since we can be consistent, so we are using this.
+
+## Adding emotion css
+
+Need to add:
+
+```javascript
+/** @jsx jsx */
+import { css, jsx } from "@emotion/react";
+```
