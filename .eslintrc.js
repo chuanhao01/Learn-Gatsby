@@ -49,6 +49,10 @@ module.exports = {
       ],
       rules: {
         ...defaultEslintConfig.rules,
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          { varsIgnorePattern: "jsx" },
+        ],
         "import/no-unresolved": "error",
         "@typescript-eslint/naming-convention": [
           "error",
