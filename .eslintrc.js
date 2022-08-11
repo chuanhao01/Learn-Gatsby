@@ -40,6 +40,7 @@ module.exports = {
     // Specifically for typescript in main gatsby src code
     {
       files: ["*.ts", "*.tsx"],
+      processor: "@graphql-eslint/graphql",
       plugins: ["jsx-a11y", "import", "react", "@typescript-eslint"],
       extends: [
         "eslint:recommended",
@@ -88,6 +89,11 @@ module.exports = {
           typescript: { alwaysTryTypes: true },
         },
       },
+    },
+    {
+      files: ["*.graphql"],
+      parser: "@graphql-eslint/eslint-plugin",
+      plugins: ["@graphql-eslint"],
     },
   ],
 };
