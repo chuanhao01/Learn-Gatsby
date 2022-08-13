@@ -6,7 +6,7 @@ import { css, jsx } from "@emotion/react";
 
 type TVerticalPageLayoutProps = {
   children: React.ReactNode;
-  pageTitle?: string;
+  pageTitle: string;
 };
 
 const VerticalPageLayout = ({
@@ -17,6 +17,12 @@ const VerticalPageLayout = ({
     margin: "auto",
     maxWidth: "500px",
     fontFamily: "sans-serif",
+  });
+  const STitleHeader = css({
+    fontSize: "3rem",
+    color: "gray",
+    fontWeight: 700,
+    margin: "3rem 0",
   });
   const SNavLinks = css({ display: "flex", listStyle: "none", paddingLeft: 0 });
   const SNavLinkItem = css({ paddingRight: "2rem" });
@@ -34,12 +40,13 @@ const VerticalPageLayout = ({
   `;
   const data = useStaticQuery<Queries.VerticalPageLayoutQuery>(query);
   const title = data.site?.siteMetadata.title;
-  const renderedTitle = pageTitle || title;
 
   return (
     <div css={SContainer}>
-      <title>{renderedTitle}</title>
-      <header>{title}</header>
+      <title>
+        {title} | {pageTitle}
+      </title>
+      <header css={STitleHeader}>{title}</header>
       <nav>
         <ul css={SNavLinks}>
           <li css={SNavLinkItem}>
@@ -50,6 +57,11 @@ const VerticalPageLayout = ({
           <li css={SNavLinkItem}>
             <Link to="/about" css={SNavLinkText}>
               About
+            </Link>
+          </li>
+          <li css={SNavLinkItem}>
+            <Link to="/blogs" css={SNavLinkText}>
+              Blogs
             </Link>
           </li>
         </ul>
