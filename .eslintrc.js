@@ -16,6 +16,7 @@ module.exports = {
     browser: true,
     es2021: true,
     node: true,
+    es6: true,
   },
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -40,7 +41,8 @@ module.exports = {
     // Specifically for typescript in main gatsby src code
     {
       files: ["*.ts", "*.tsx"],
-      processor: "@graphql-eslint/graphql",
+      // Not until compiler is fixed
+      // processor: "@graphql-eslint/graphql",
       plugins: ["jsx-a11y", "import", "react", "@typescript-eslint"],
       extends: [
         "eslint:recommended",
