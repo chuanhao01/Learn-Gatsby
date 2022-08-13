@@ -8,8 +8,17 @@ const BlogsPage = ({ data }: PageProps<Queries.BlogsPageQuery>) => {
     <VerticalPageLayout pageTitle="My Blog Posts">
       <p>Look at my blogs</p>
       <ul>
-        {data.allFile.nodes.map((node) => {
-          return <li key={node.name}>{node.name}</li>;
+        {data.allMdx.nodes.map((node) => {
+          if (!node.frontmatter) {
+            return null;
+          }
+
+          const {
+            id,
+            frontmatter: { title },
+          } = node;
+
+          return <li key={id}>{title}</li>;
         })}
       </ul>
     </VerticalPageLayout>
@@ -20,10 +29,16 @@ export default BlogsPage;
 
 export const query = graphql`
   query BlogsPage {
-    allFile(filter: { sourceInstanceName: { eq: "blogs" } }) {
+    allMdx(sort: { order: DESC, fields: frontmatter___date }) {
       nodes {
-        name
-        sourceInstanceName
+        id
+        slug
+        frontmatter {
+          title
+          date(formatString: "MMMM DD, YYYY")
+        }
+        fileAbsolutePath
+        body
       }
     }
   }
