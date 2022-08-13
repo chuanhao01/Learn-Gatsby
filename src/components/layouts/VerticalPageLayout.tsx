@@ -1,12 +1,12 @@
 /** @jsx jsx */
-import { Link } from "gatsby";
+import { Link, graphql, useStaticQuery } from "gatsby";
 import * as React from "react";
 
 import { css, jsx } from "@emotion/react";
 
 type TVerticalPageLayoutProps = {
   children: React.ReactNode;
-  pageTitle: string;
+  pageTitle?: string;
 };
 
 const VerticalPageLayout = ({
@@ -23,9 +23,23 @@ const VerticalPageLayout = ({
   const SNavLinkText = css({ color: "black" });
   const SHeading = css({ color: "rebeccapurple" });
 
+  const query = graphql`
+    query VerticalPageLayout {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `;
+  const data = useStaticQuery<Queries.VerticalPageLayoutQuery>(query);
+  const title = data.site?.siteMetadata.title;
+  const renderedTitle = pageTitle || title;
+
   return (
     <div css={SContainer}>
-      <title>{pageTitle}</title>
+      <title>{renderedTitle}</title>
+      <header>{title}</header>
       <nav>
         <ul css={SNavLinks}>
           <li css={SNavLinkItem}>
