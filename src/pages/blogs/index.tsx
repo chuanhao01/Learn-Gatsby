@@ -1,5 +1,4 @@
-import { PageProps, graphql } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { Link, PageProps, graphql } from "gatsby";
 import * as React from "react";
 
 import { VerticalPageLayout } from "components/layouts/VerticalPageLayout";
@@ -10,21 +9,22 @@ const BlogsPage = ({ data }: PageProps<Queries.BlogsPageQuery>) => {
       <p>Look at my blogs</p>
       {data.allMdx.nodes.map((node) => {
         // If the markdown does not have the required frontmatter
-        if (!node.frontmatter?.title) {
+        if (!node.frontmatter?.title || !node.slug) {
           return null;
         }
 
         const {
           id,
-          body,
+          slug,
           frontmatter: { title, date },
         } = node;
 
         return (
           <article key={id}>
-            <h2>{title}</h2>
+            <h2>
+              <Link to={`/blogs/${slug}`}>{title}</Link>
+            </h2>
             <p>Posted: {date}</p>
-            <MDXRenderer>{body}</MDXRenderer>
           </article>
         );
       })}
